@@ -82,19 +82,28 @@ class Tasks{
         {
             System.out.println("n[" + i + "] = " + numbers[i]);
         }
-        int count = 0;
+
         for (int i = 0; i < numbers.length; i++)
         {
-            for (int j = 0; j < numbers.length; j++)
+            for (int j = i; j < numbers.length; j++)
             {
-                if ( numbers[i] == numbers[j])
+                if (numbers[i] > numbers[j])
                 {
-                    count++;
-                } 
-
+                    int temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
             }
-            System.out.println(numbers[i] + " встречается " + count + " раз");
-            count = 0;
+            
         }
+
+        int count = 1;
+
+        for (int i = 0; i < numbers.length - 1; i++)
+        {
+            if (numbers[i] < numbers[i + 1]) count++;
+        }
+        System.out.println("количество различных чисел: " + count);
+
     }
 }
