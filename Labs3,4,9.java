@@ -23,9 +23,9 @@ class Tasks{
         // и указывает ее сумму; если денег недостаточно, печатает об этом сообщение и указывает размер недостающей суммы
         System.out.println("Введите стоимость книг и внесенную сумму:");
         System.out.print("Стоимость книг: ");
-        double cost = Math.abs(in.nextDouble());
+        double cost = GreaterZero(in.nextDouble());
         System.out.print("Сумма: ");
-        double sum = Math.abs(in.nextDouble());
+        double sum = GreaterZero(in.nextDouble());
         if (sum == cost)
         {
             System.out.println("Спасибо!");
@@ -44,7 +44,7 @@ class Tasks{
     {
         // Найти для указанных последовательностей наименьший номер,
         // для которого выполняется условие M и вывести на экран этот номер и все элементы аi, (где i = 1 , 2,…, n):
-        System.out.println("Введите число до которого будет выполняться условие, число меньше 1 и больше 0:");
+        System.out.print("Введите число до которого будет выполняться условие, число меньше 1 и больше 0: ");
         double num = in.nextDouble();
         if(num > 0 && num < 1)
         {
@@ -70,7 +70,7 @@ class Tasks{
     public void Task3()
     {
         // Дана последовательность целых чисел. Найти количество различных чисел в этой последовательности.
-        System.out.println("Введите количество чисел в массиве: ");
+        System.out.print("Введите количество чисел в массиве: ");
         int size = Math.abs(in.nextInt());
         int[] numbers = new int[size];
         for (int i = 0; i < size; i++)
@@ -104,6 +104,15 @@ class Tasks{
             if (numbers[i] < numbers[i + 1]) count++;
         }
         System.out.println("количество различных чисел: " + count);
+    }
 
+    private double GreaterZero(double input)
+    {
+        if (input < 0)
+        {
+            System.out.println("Число отрицательное, будет взят его модуль!");
+            return Math.abs(input);
+        }
+        else return input;
     }
 }
